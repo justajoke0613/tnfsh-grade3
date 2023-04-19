@@ -75,16 +75,6 @@ def submit_grades():
         print("你是最棒的")
     if PR==0:
         print("你是最爛的")
-    '''
-    #用國文測試
-    print(data)
-    print(input1.get())
-    print(type(input1.get()))
-    print(check_num)
-    print(combo.get())
-    print(type(combo.get()))
-    print(degree)
-    '''
 root = tk.Tk()
 root.geometry('530x290') #設定視窗大小
 root.title("學測各科級分") #設定title
