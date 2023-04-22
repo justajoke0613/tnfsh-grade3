@@ -2,20 +2,23 @@ import json
 import requests
 import tkinter as tk
 from tkinter import ttk
+#引入自己製作的json檔
 respective_data_112 = 'https://api.jsonbin.io/v3/b/64107d9aebd26539d08e83ab' #112各科成績
 total3_data_112 = 'https://api.jsonbin.io/v3/b/6434b486c0e7653a05a1b625' #112三科和(無數B、社)
 total4_data_112 = 'https://api.jsonbin.io/v3/b/64109c8bebd26539d08e9449' #112四科和(無數B、社)
 
+#設定8個input欄位，可分別輸入不同項目成績
 def submit_grades():
-    chinese_grade = input1.get()
-    english_grade = input2.get()
-    mathA_grade = input3.get()
-    science_grade = input4.get()
-    mathB_grade = input5.get()
-    history_grade = input6.get()
-    tot3_grade = input7.get()
-    tot4_grade = input8.get()
-
+    chinese_grade = input1.get()#國文
+    english_grade = input2.get()#英文
+    mathA_grade = input3.get()#數學A
+    science_grade = input4.get()#自然
+    mathB_grade = input5.get()#數學B
+    history_grade = input6.get()#社會
+    tot3_grade = input7.get()#三科和
+    tot4_grade = input8.get()#四科和
+    
+#設定下拉式選單參數，並以check_num配合資料分析檔案
     if 4<=combo.current()<=9:
         data = requests.get(respective_data_112).json()
         check_num = 1
@@ -26,6 +29,7 @@ def submit_grades():
         data = requests.get(total4_data_112).json()
         check_num = 4
         
+#選取科目組合並get輸入值 
     if combo.get() == "國文":
         degree = int(input1.get())
     elif combo.get() == "英文":
@@ -75,7 +79,9 @@ def submit_grades():
         print("你是最棒的")
     if PR==0:
         print("你是最爛的")
-root = tk.Tk()
+
+#tkinter部份本次以grid排版
+root = tk.Tk() #宣告
 root.geometry('530x290') #設定視窗大小
 root.title("學測各科級分") #設定title
 root.resizable(False, False)#視窗大小設為不可更動
@@ -295,9 +301,6 @@ def show_entry():
         input7.grid(row=2,column=1)
         label_tot4.grid_forget()
         input8.grid_forget()
-
-    #print(combo.get())
-    #print(combo.current())
     
 # 建立按鈕以顯示Label和輸入框
 button = tk.Button(root, text="顯示成績輸入框", command=show_entry)
