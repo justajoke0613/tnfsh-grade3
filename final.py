@@ -310,6 +310,9 @@ button.grid(row=1,column=3)
 submit_button = tk.Button(root, text="提交成績", command=submit_grades)
 submit_button.grid(row=7, column=1)
 
+root.mainloop()
+
+
 '''
 #讀取資料
 if check_num == 1:
@@ -370,4 +373,4 @@ print('累積人數{0}人'.format(accumulated_people))
 
 
 '''
-root.mainloop()
+
