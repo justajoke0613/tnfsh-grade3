@@ -19,13 +19,13 @@ def submit_grades():
     tot4_grade = input8.get()#四科和
     
 #設定下拉式選單參數，並以check_num配合資料分析檔案
-    if 4<=combo.current()<=9:
+    if 4<=combo.current()<=9: #判斷為單科
         data = requests.get(respective_data_112).json()
         check_num = 1
-    elif 0<=combo.current()<=3:
+    elif 0<=combo.current()<=3: #判斷為三科
         data = requests.get(total3_data_112).json()
         check_num = 3
-    elif combo.current() == 10:
+    elif combo.current() == 10: #判斷為四科
         data = requests.get(total4_data_112).json()
         check_num = 4
         
